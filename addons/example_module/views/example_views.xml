@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Example Form View -->
+    <record id="view_example_form" model="ir.ui.view">
+        <field name="name">example.model.form</field>
+        <field name="model">example.model</field>
+        <field name="arch" type="xml">
+            <form string="Example">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Example Tree View -->
+    <record id="view_example_tree" model="ir.ui.view">
+        <field name="name">example.model.tree</field>
+        <field name="model">example.model</field>
+        <field name="arch" type="xml">
+            <tree string="Examples">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Example Search View -->
+    <record id="view_example_search" model="ir.ui.view">
+        <field name="name">example.model.search</field>
+        <field name="model">example.model</field>
+        <field name="arch" type="xml">
+            <search string="Search Examples">
+                <field name="name"/>
+                <field name="description"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Example Action Window -->
+    <record id="action_example" model="ir.actions.act_window">
+        <field name="name">Examples</field>
+        <field name="res_model">example.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first example record
+            </p>
+        </field>
+    </record>
+
+    <!-- Example Menu -->
+    <menuitem id="menu_example_root"
+              name="Examples"
+              sequence="10"/>
+
+    <menuitem id="menu_example"
+              name="Example Records"
+              parent="menu_example_root"
+              action="action_example"
+              sequence="10"/>
+</odoo>
